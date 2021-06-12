@@ -9,13 +9,23 @@ const { generateHTML, generateCard } = require ("./src/html");
 const render = require("./src/html");
 const teamMembers = [];
 
+
 function createManager() {
   console.log("build your team");
   inquirer
     .prompt([
       {
-        type: "input",
+        type: "number",
         name: "managerId",
+        validate:   function   (idnumber)   {
+          if   (idnumber == NaN)   {
+            
+            
+            return false;
+         
+          }
+          return true
+        },
         message: "Please input employee ID number",
       },
       {
@@ -26,11 +36,12 @@ function createManager() {
       {
         type: "input",
         name: "managerEmail",
-        
-        validate: function(managerEmail)
-        {
-            // Regex mail check (return true if valid mail)
-            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(managerEmail);
+
+        validate: function (managerEmail) {
+          // Regex mail check (return true if valid mail)
+          return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+            managerEmail
+          );
         },
         message: "What is the manager's email?",
       },
@@ -82,6 +93,15 @@ function createManager() {
         {
           type: "input",
           name: "engineerId",
+          validate:   function   (idnumber)   {
+            if   (idnumber == NaN)   {
+              
+              
+              return false;
+           
+            }
+            return true
+          },
           message: "Please input employee ID number",
         },
         {
@@ -92,6 +112,12 @@ function createManager() {
         {
           type: "input",
           name: "engineerEmail",
+          validate: function (managerEmail) {
+            // Regex mail check (return true if valid mail)
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+              managerEmail
+            );
+          },
           message: "What is the engineer's email?",
         },
         {
@@ -118,6 +144,15 @@ function createManager() {
         {
           type: "input",
           name: "internId",
+          validate:   function   (idnumber)   {
+            if   (idnumber == NaN)   {
+              
+              
+              return false;
+           
+            }
+            return true
+          },
           message: "Please input employee ID number",
         },
         {
@@ -128,6 +163,12 @@ function createManager() {
         {
           type: "input",
           name: "internEmail",
+          validate: function (managerEmail) {
+            // Regex mail check (return true if valid mail)
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+              managerEmail
+            );
+          },
           message: "What is the intern's email?",
         },
         {

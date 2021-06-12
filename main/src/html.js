@@ -7,7 +7,9 @@ function generateCard(employee) {
         <ul class="list-group list-group-flush">
         <li class="list-group-item">name: ${employee.name}</li>
         <li class="list-group-item">employee id: ${employee.id}</li>
-        <li class="list-group-item">email: ${employee.email}</li>
+        <li class="list-group-item"><a href = "mailto: ${employee.email}">${
+      employee.email
+    }</a></li>
         <li class="list-group-item">school:${employee.school}</li>
         </ul>
       </div>`;
@@ -19,9 +21,13 @@ function generateCard(employee) {
         <ul class="list-group list-group-flush">
         <li class="list-group-item">name: ${employee.name}</li>
         <li class="list-group-item">employee id: ${employee.id}</li>
-        <li class="list-group-item">email: ${employee.email}</li>
-        <li class="list-group-item">GitHub :${employee.officeNumber}</li>
-        </ul>
+        <li class="list-group-item"><a href = "mailto: ${employee.email}">${
+      employee.email
+    }</a></li>
+    <li class="list-group-item"><a target="blank" href = "https://github.com/${
+      employee.github
+    }">GitHub: ${employee.github}</a></li>
+      </ul>
       </div>`;
   } else {
     //manager
@@ -32,7 +38,9 @@ function generateCard(employee) {
         <ul class="list-group list-group-flush">
           <li class="list-group-item">name: ${employee.name}</li>
           <li class="list-group-item">employee id: ${employee.id}</li>
-          <li class="list-group-item">email: ${employee.email}</li>
+          <li class="list-group-item"><a href = "mailto: ${employee.email}">${
+      employee.email
+    }</a></li>
           <li class="list-group-item">office number:${
             employee.officeNumber
           }</li>

@@ -4,6 +4,7 @@ const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const { generateHTML, generateCard } = require ("./src/html");
 
 const render = require("./src/html");
 const teamMembers = [];
@@ -25,6 +26,12 @@ function createManager() {
       {
         type: "input",
         name: "managerEmail",
+        
+        validate: function(managerEmail)
+        {
+            // Regex mail check (return true if valid mail)
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(managerEmail);
+        },
         message: "What is the manager's email?",
       },
       {
@@ -63,6 +70,8 @@ function createManager() {
           addEngineer();
         } else if (answer.employeeType == "intern") {
           addIntern();
+        } else if (answer.employeeType == "exit") {
+          saveAndExit();
         }
       });
   }
@@ -99,7 +108,6 @@ function createManager() {
           answer.gitHub
         );
         teamMembers.push(engineer);
-        console.log(teamMembers);
         createTeam();
       });
   }
@@ -136,9 +144,21 @@ function createManager() {
           answer.school
         );
         teamMembers.push(intern);
-        console.log(teamMembers);
+        console.log(teamMembers + "2");
         createTeam();
       });
+  }
+  function saveAndExit() {
+    console.log(teamMembers);
+    console.log("awesome I did it");
+
+    const htmlteam = teamMembers.map(member => {
+      return generateCard(member);
+    });
+    var teamCard =   generateHTML(htmlteam);
+    fs.writeFileSync("output/index.html",teamCard,"utf-8" )
+    console.log(teamCard)
+  
   }
 }
 createManager();

@@ -5,6 +5,7 @@
   ## Description
   
   this is a command line application that the allows the users to  create teams of employees. the employees profiles are created through a series of questions and those answers are used to create an html document displaying the portfolios.
+  ![screenshot](https://github.com/davidsackett14/WeatherGenApp/blob/main/Screenshot%20(120).png)
   
   
   ## Table of Contents (Optional)
@@ -17,7 +18,7 @@
   
   ## Installation
   
-  this program can be ran through node js by running `node index.js`and answering the questions that hte useer is prompted with
+  this program can be ran through node js by running `node index.js`and answering the questions that the user is prompted with
   
   
   ## Usage 

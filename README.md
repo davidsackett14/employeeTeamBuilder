@@ -5,7 +5,7 @@
   ## Description
   
   this is a command line application that the allows the users to  create teams of employees. the employees profiles are created through a series of questions and those answers are used to create an html document displaying the portfolios.
-  ![link](https://drive.google.com/file/d/1laC7o7I2CJqkbg9E86kV-KDwtZZJUxeQ/view)
+  ![screenshot](https://github.com/davidsackett14/employeeTeamBuilder/blob/main/main/Screenshot%20(121).png)
   
   
   ## Table of Contents (Optional)
